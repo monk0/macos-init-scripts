@@ -42,7 +42,6 @@ done
 
 # 向 .zshrc 添加 JDK 切换 alias
 echo "Adding JDK version switch aliases to .zshrc..."
-echo 'alias jdk-8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`;java -version"' >> ~/.zshrc
 echo 'alias jdk-11="export JAVA_HOME=`/usr/libexec/java_home -v 11`;java -version"' >> ~/.zshrc
 echo 'alias jdk-17="export JAVA_HOME=`/usr/libexec/java_home -v 17`;java -version"' >> ~/.zshrc
 
