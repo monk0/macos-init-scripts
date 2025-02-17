@@ -31,7 +31,7 @@ else
 fi
 
 # 检查并安装 git openjdk@11 openjdk@17
-for package in git openjdk@8 openjdk@11 openjdk@17; do
+for package in git openjdk@11 openjdk@17; do
     if ! brew list --formula $package &>/dev/null; then
         echo "$package is not installed. Installing $package..."
         brew install $package
