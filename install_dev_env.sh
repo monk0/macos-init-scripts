@@ -24,8 +24,8 @@ else
     echo 'alias jdk-17="export JAVA_HOME=`/usr/libexec/java_home -v 17`;java -version"' >> ~/.zshrc
 fi
 
-# 检查并安装 iTerm2,Visual-studio-code
-for package in iterm2 visual-studio-code; do
+# 检查并安装 Visual-studio-code
+for package in visual-studio-code; do
     if ! brew list --cask $package &>/dev/null; then
         echo "$package is not installed. Installing $package..."
         brew install $package
