@@ -6,7 +6,8 @@
 echo -e "${GREEN}开始安装常用软件...${NC}"
 
 # 安装 cask 应用
-CASKS=(google-chrome wechat tencent-meeting microsoft-office visual-studio-code drawio podman-desktop dbeaver-community RedisInsight)
+CASKS=(google-chrome wechat tencent-meeting microsoft-office notion 
+ visual-studio-code drawio podman-desktop dbeaver-community RedisInsight apipost)
 for package in "${CASKS[@]}"; do
     if ! brew list --cask "$package" &>/dev/null; then
         echo "安装 $package..."
