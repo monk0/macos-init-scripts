@@ -5,8 +5,8 @@
 
 echo -e "${GREEN}开始 Java 环境初始化...${NC}"
 
-# 安装 OpenJDK 11、OpenJDK 17 和 Maven
-FORMULAS=(openjdk@11 openjdk@17 maven)
+# 安装 OpenJDK 11、OpenJDK 17 、Jenv 、 Maven
+FORMULAS=(openjdk@11 openjdk@17 jenv maven)
 for package in "${FORMULAS[@]}"; do
     if ! brew list --formula "$package" &>/dev/null; then
         echo "安装 $package..."
@@ -14,6 +14,15 @@ for package in "${FORMULAS[@]}"; do
     fi
 done
 
+if ! grep -q "jenv config" "$SHELL_CONFIG"; then
+    echo "配置 jenv 环境变量..."
+    echo -e "\n# jenv config" >> "$SHELL_CONFIG"
+    echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> "$SHELL_CONFIG"
+    echo 'eval "$(jenv init -)"' >> "$SHELL_CONFIG"
+
+    export PATH="$HOME/.jenv/bin:$PATH" 
+    eval "$(jenv init -)"
+fi
 
 JDKS=($(brew list | grep ^openjdk))
 for jdk in "${JDKS[@]}"; do
@@ -24,9 +33,7 @@ for jdk in "${JDKS[@]}"; do
         JAVA_VERSION=${jdk#openjdk@}
     fi
 
-    echo $JAVA_VERSION
-    echo "alias $JAVA_VERSION='export JAVA_HOME=$(/usr/libexec/java_home -v $JAVA_VERSION) && export PATH=$JAVA_HOME/bin:$PATH && java -version'" >> "$SHELL_CONFIG"
-    
+    jenv add $(/usr/libexec/java_home -v $JAVA_VERSION)  
 done
 
 echo -e "${GREEN}Java 环境初始化完成${NC}"

@@ -12,12 +12,13 @@ if [ ! -d "$HOME/.pyenv" ]; then
 fi
 
 # 配置 pyenv 环境变量
-if ! grep -q "pyenv init" "$SHELL_CONFIG"; then
+if ! grep -q "pyenv config" "$SHELL_CONFIG"; then
     echo "配置 pyenv 环境变量..."
-    echo -e "\n# pyenv 配置" >> "$SHELL_CONFIG"
+    echo -e "\n# pyenv config" >> "$SHELL_CONFIG"
     echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> "$SHELL_CONFIG"
     echo 'eval "$(pyenv init --path)"' >> "$SHELL_CONFIG"
     echo 'eval "$(pyenv init -)"' >> "$SHELL_CONFIG"
+    
     export PATH="$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
