@@ -1,4 +1,5 @@
 # macOS Initialization Scripts
+
 这些脚本用于初始化新的 macOS 系统。它们包括以下内容：
 
 1. **系统更新**：更新 macOS 到最新版本。
@@ -9,18 +10,19 @@
 请按照以下步骤使用这些脚本：
 
 1. 克隆此仓库到本地：
-    ```bash
-    git clone https://github.com/yourusername/macos-init-scripts.git
-    ```
 
+   ```bash
+   git clone https://github.com/yourusername/macos-init-scripts.git
+   ```
 2. 进入脚本目录：
-    ```bash
-    cd macos-init-scripts
-    ```
 
+   ```bash
+   cd macos-init-scripts
+   ```
 3. 运行初始化脚本：
-    ```bash
-    ./init.sh
-    ```
+
+   ```bash
+   ./setup_macos.sh
+   ```
 
 请确保您有执行脚本的权限，并根据需要修改脚本以适应您的具体需求。

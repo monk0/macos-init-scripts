@@ -6,16 +6,19 @@
 # 日期: 2025-02-24
 
 # 设置脚本遇到错误时退出
-set -e
+set -eo pipefail
 
 # 定义全局变量
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export NC='\033[0m'
-export SHELL_CONFIG="$HOME/.zshrc"  # 默认使用 zsh，可改为 ~/.bashrc
 
 # 子脚本列表
-SCRIPTS=(install_generic.sh install_java_env.sh install_python_env.sh install_apps.sh)
+SCRIPTS=(
+    install_generic.sh 
+    install_java_env.sh 
+    install_python_env.sh 
+    install_apps.sh)
 
 # 检查并赋予子脚本执行权限
 for script in "${SCRIPTS[@]}"; do
